@@ -136,6 +136,8 @@ import com.android.settingslib.drawer.DashboardCategory;
 import com.android.settingslib.drawer.SettingsDrawerActivity;
 import com.android.settingslib.drawer.Tile;
 
+import com.android.settings.lox.MainSettings;
+
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
@@ -237,6 +239,8 @@ public class SettingsActivity extends SettingsDrawerActivity
 
     private static final String MAGISK_FRAGMENT = "com.android.settings.MagiskManager";
 
+    private static final String SUBSTRATUM_FRAGMENT = "com.android.settings.Substratum";			
+			
     private String mFragmentClass;
     private String mActivityAction;
 
@@ -369,6 +373,8 @@ public class SettingsActivity extends SettingsDrawerActivity
             WifiAPITest.class.getName(),
             WifiInfo.class.getName(),
             MasterClear.class.getName(),
+     		MainSettings.class.getName(),
+	        MasterClear.class.getName(),
             NightDisplaySettings.class.getName(),
             ManageDomainUrls.class.getName(),
             AutomaticStorageManagerSettings.class.getName()
@@ -575,6 +581,7 @@ public class SettingsActivity extends SettingsDrawerActivity
 
         mIsShowingDashboard = className.equals(Settings.class.getName())
                 || className.equals(Settings.WirelessSettings.class.getName())
+				|| className.equals(Settings.MainSettings.class.getName())
                 || className.equals(Settings.DeviceSettings.class.getName())
                 || className.equals(Settings.PersonalSettings.class.getName())
                 || className.equals(Settings.WirelessSettings.class.getName());
@@ -1055,6 +1062,14 @@ public class SettingsActivity extends SettingsDrawerActivity
             return null;
         }
 
+         if (SUBSTRATUM_FRAGMENT.equals(fragmentName)) {
+            Intent substratumIntent = new Intent();
+            substratumIntent.setClassName("projekt.substratum", "projekt.substratum.LaunchActivity");
+            startActivity(substratumIntent);
+            finish();
+            return null;
+        }		
+		
         if (validate && !isValidFragment(fragmentName)) {
             throw new IllegalArgumentException("Invalid fragment for this activity: "
                     + fragmentName);
@@ -1161,6 +1176,16 @@ public class SettingsActivity extends SettingsDrawerActivity
                         Settings.MagiskActivity.class.getName()),
                 magiskSupported, isAdmin, pm);
 
+        // Remove Substratum if not installed
+        boolean substratumSupported = false;
+        try {
+            substratumSupported = (getPackageManager().getPackageInfo("projekt.substratum", 0).versionCode > 0);
+        } catch (PackageManager.NameNotFoundException e) {
+        }
+        setTileEnabled(new ComponentName(packageName,
+                        Settings.SubstratumActivity.class.getName()),
+                substratumSupported, isAdmin, pm);		
+		
         // Show scheduled power on and off if support
         boolean showTimerSwitch = false;
         Intent intent = new Intent(ACTION_TIMER_SWITCH);

@@ -133,8 +133,16 @@
 
         <activity android:name=".Settings$WirelessSettings"
             android:label="@string/header_category_wireless_networks">
-            <intent-filter android:priority="4">
+            <intent-filter android:priority="5">
                 <action android:name="com.android.settings.category.wireless" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+		
+        <activity android:name=".Settings$LOXSettings"
+            android:label="@string/lox_category_title">
+            <intent-filter android:priority="4">
+                <action android:name="com.android.settings.category.lox" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -2765,6 +2773,25 @@
                 android:value="true" />
         </activity>
 
+        <activity android:name="Settings$SubstratumActivity"
+            android:label="@string/substratum_title"
+            android:icon="@drawable/ic_settings_magisk"
+            android:taskAffinity="">
+            <intent-filter android:priority="4">
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <intent-filter android:priority="1">
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                android:value="com.android.settings.category.lox" />
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.Substratum" />
+
+        </activity>		
+
         <activity android:name="Settings$MagiskActivity"
             android:label="@string/magisk_title"
             android:icon="@drawable/ic_settings_magisk"
@@ -2779,11 +2806,27 @@
                 <action android:name="com.android.settings.action.SETTINGS" />
             </intent-filter>
             <meta-data android:name="com.android.settings.category"
-                android:value="com.android.settings.category.aicpextras" />
+                android:value="com.android.settings.category.lox" />
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.MagiskManager" />
             <meta-data android:name="com.android.settings.summary"
                 android:resource="@string/magisk_summary" />
+        </activity>
+		
+    	<!-- Xtension Settings -->
+        <activity android:name="Settings$MainSettingsActivity"
+                android:label="@string/xtension_settings"
+                android:icon="@drawable/ic_settings_xtension">
+            <intent-filter android:priority="1">
+                <action android:name="com.android.settings.action.SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                android:value="com.android.settings.category.lox" />
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.lox.MainSettings" />
+            <meta-data android:name="com.android.settings.summary"
+                android:resource="@string/xtension_settings_summary" />
         </activity>
 
         <!-- Show apps for which application-level notification settings are applicable -->

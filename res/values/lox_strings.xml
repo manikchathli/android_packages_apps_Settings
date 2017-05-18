@@ -11,8 +11,28 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+	
+   <!-- Xtension Settings Title and Headers -->
+	<string name="xtension_settings">Xtension</string>
+	<string name="xtension_settings_summary">Customize your device xD</string>
+	
    <!-- This only shows if Magisk is installed -->
     <string name="magisk_title">Magisk Manager</string>
     <string name="magisk_summary">Root management</string>
+	
+    <!-- About phone screen, LineageXtended version -->
+    <string name="lox_version">LineageXtended Version</string>
+    <string name="lox_version_default">Unknown</string>
+	
+    <!-- LOX Settings Category -->
+    <string name="lox_category_title">LineageXtended Settings</string>
+	
+	<!-- About ROM -->
+	<string name="lineagextendedcontact">Connect With Us</string>
+	<string name="github_link">Github</string>
+	<string name="telegram_link">Telegram</string>	
+	<string name="website_link">Website</string>
+	<string name="about_dev_info">Connect With Us</string>
 
+	<string name="substratum_title">Themes</string>
 </resources>
