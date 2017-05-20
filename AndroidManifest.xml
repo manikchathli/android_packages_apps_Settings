@@ -2775,7 +2775,7 @@
 
         <activity android:name="Settings$SubstratumActivity"
             android:label="@string/substratum_title"
-            android:icon="@drawable/ic_settings_magisk"
+            android:icon="@drawable/ic_settings_substratum"
             android:taskAffinity="">
             <intent-filter android:priority="4">
                 <action android:name="android.intent.action.MAIN" />
@@ -2814,19 +2814,29 @@
         </activity>
 		
     	<!-- Xtension Settings -->
-        <activity android:name="Settings$MainSettingsActivity"
-                android:label="@string/xtension_settings"
-                android:icon="@drawable/ic_settings_xtension">
+       <activity android:name="Settings$MainSettingsActivity"
+            android:label="@string/xtension_settings"
+	    android:icon="@drawable/ic_settings_xtension"
+            android:taskAffinity="">
             <intent-filter android:priority="1">
-                <action android:name="com.android.settings.action.SETTINGS" />
+                <action android:name="com.android.settings.lox.MainSettings" />
                 <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.VOICE_LAUNCH" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <intent-filter android:priority="9">
+                <action android:name="com.android.settings.action.SETTINGS" />
             </intent-filter>
             <meta-data android:name="com.android.settings.category"
                 android:value="com.android.settings.category.lox" />
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.lox.MainSettings" />
-            <meta-data android:name="com.android.settings.summary"
-                android:resource="@string/xtension_settings_summary" />
+            <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
+                android:value="true" />
         </activity>
 
         <!-- Show apps for which application-level notification settings are applicable -->

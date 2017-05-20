@@ -32,7 +32,22 @@
 	<string name="github_link">Github</string>
 	<string name="telegram_link">Telegram</string>	
 	<string name="website_link">Website</string>
-	<string name="about_dev_info">Connect With Us</string>
 
 	<string name="substratum_title">Themes</string>
+	
+	<!-- Xtension Settings strings -->
+    <string name="lox_statusbar_title">Status Bar</string>
+    <string name="lox_ui_title">SystemUI</string>
+    <string name="lox_recents_settings_title">Recent Apps</string>
+    <string name="lox_misc_title">Misc</string>
+    <string name="lox_general">General</string>
+    <string name="lox_notification_drawer_title">Notification Drawer</string>
+    <string name="lox_clock_battery_title">Clock and Battery</string>
+    <string name="lox_qspulldown_title">Quick Settings</string>
+    <string name="lox_animation_title">Animations</string>
+    <string name="lox_system_animations">System Animations</string>
+    <string name="lox_animation_title">Animations</string>
+    <string name="lox_notification_drawer_title">Notification Drawer</string>
+    <string name="lox_recents_settings_title">Recent Settings</string>
+
 </resources>
