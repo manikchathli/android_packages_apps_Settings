@@ -37,7 +37,6 @@ public class Animations extends SettingsPreferenceFragment implements
       private static final String WALLPAPER_CLOSE = "wallpaper_close";
       private static final String WALLPAPER_INTRA_OPEN = "wallpaper_intra_open";
       private static final String WALLPAPER_INTRA_CLOSE = "wallpaper_intra_close";
-	  private static final String POWER_MENU_ANIMATIONS = "power_menu_animations";
   
       ListPreference mActivityOpenPref;
       ListPreference mActivityClosePref;
@@ -50,7 +49,6 @@ public class Animations extends SettingsPreferenceFragment implements
       ListPreference mWallpaperIntraOpen;
       ListPreference mWallpaperIntraClose;
       SwitchPreference mAnimNoOverride;
-	  private ListPreference mPowerMenuAnimations;
   
       private int[] mAnimations;
       private String[] mAnimationsStrings;
@@ -135,13 +133,6 @@ public class Animations extends SettingsPreferenceFragment implements
           mWallpaperIntraClose.setSummary(getProperSummary(mWallpaperIntraClose));
           mWallpaperIntraClose.setEntries(mAnimationsStrings);
           mWallpaperIntraClose.setEntryValues(mAnimationsNum);
-		
-
-        mPowerMenuAnimations = (ListPreference) findPreference(POWER_MENU_ANIMATIONS);
-        mPowerMenuAnimations.setValue(String.valueOf(Settings.System.getInt(
-                getContentResolver(), Settings.System.POWER_MENU_ANIMATIONS, 0)));
-        mPowerMenuAnimations.setSummary(mPowerMenuAnimations.getEntry());
-        mPowerMenuAnimations.setOnPreferenceChangeListener(this);
 
     }
 
@@ -189,15 +180,7 @@ public class Animations extends SettingsPreferenceFragment implements
               int val = Integer.parseInt((String) newValue);
               result = Settings.System.putInt(mContentRes,
                       Settings.System.ACTIVITY_ANIMATION_CONTROLS[9], val);
-         } else if (preference == mPowerMenuAnimations) {
-            Settings.System.putInt(getContentResolver(), Settings.System.POWER_MENU_ANIMATIONS,
-                    Integer.valueOf((String) newValue));
-            mPowerMenuAnimations.setValue(String.valueOf(newValue));
-            mPowerMenuAnimations.setSummary(mPowerMenuAnimations.getEntry());
-            return true;
-		 }
-			  
-
+          }
           preference.setSummary(getProperSummary(preference));
 
         return false;
