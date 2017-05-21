@@ -59,10 +59,5 @@
     <string name="hex_hint">#ff000000</string>
     <string name="set">Set</string>
     <string name="color_default">Default</string>
-	
-    <!-- Settings drawer switch -->
-    <string name="show_settings_drawer_title">Show settings drawer</string>
-    <string name="show_settings_drawer_enabled">Settings drawer enabled</string>
-    <string name="show_settings_drawer_disabled">Settings drawer disabled</string>
 
 </resources>
