@@ -20,5 +20,11 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:layout="@layout/tab"
     android:title="@string/lox_statusbar_title">
+	
+    <PreferenceScreen
+        android:fragment="com.android.settings.lox.fragments.ClockSettings"
+        android:key="lox_clock_settings"
+        android:title="@string/clock_settings_title"
+        android:summary="@string/clock_settings_summary" />
 
 </PreferenceScreen>
