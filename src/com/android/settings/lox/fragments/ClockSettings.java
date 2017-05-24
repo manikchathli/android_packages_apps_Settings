@@ -80,7 +80,7 @@ public class ClockSettings extends SettingsPreferenceFragment
             prefSet.removeAll();
         }
 
-        addPreferencesFromResource(R.xml.abc_clock_settings);
+        addPreferencesFromResource(R.xml.lox_clock_settings);
         prefSet = getPreferenceScreen();
 
         PackageManager pm = getPackageManager();
@@ -166,7 +166,7 @@ public class ClockSettings extends SettingsPreferenceFragment
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.ABC;
+        return MetricsEvent.LOX;
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
