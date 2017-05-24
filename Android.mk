@@ -13,6 +13,8 @@ include $(BUILD_STATIC_JAVA_LIBRARY)
 include $(CLEAR_VARS)
 
 LOCAL_JAVA_LIBRARIES := bouncycastle core-oj telephony-common telephony-ext ims-common
+LOCAL_JAVA_LIBRARIES := bouncycastle conscrypt telephony-common
+LOCAL_JAVA_LIBRARIES := bouncycastle conscrypt telephony-common ims-common
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
     android-support-v4 \
